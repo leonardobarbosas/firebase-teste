@@ -1,10 +1,13 @@
 package br.senai.sp.jandira.myapplication
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -61,6 +64,11 @@ fun Greeting() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+
+        Text(
+            text = "Create Account"
+        )
+
         OutlinedTextField(
             value = emailState,
             onValueChange = { emailState = it },
@@ -85,14 +93,21 @@ fun Greeting() {
 
         Button(
             onClick = {
-                accountCreate(email = emailState, password = passwordState)
+                accountCreate(emailState, passwordState, context)
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = "Join"
+                text = "Create"
             )
         }
+        Text(
+            text = "You have account? Join!",
+            modifier = Modifier.clickable {
+                val intent = Intent(context, LoginActivity::class.java)
+                context.startActivity(intent)
+            }
+        )
 
     }
 }
@@ -105,7 +120,7 @@ fun DefaultPreview() {
     }
 }
 
-fun accountCreate(email: String, password: String) {
+fun accountCreate(email: String, password: String, context: Context) {
 
 
     // OBTER UMA INSTANCIA DO FIREBASE AUTH
@@ -114,6 +129,9 @@ fun accountCreate(email: String, password: String) {
     auth.createUserWithEmailAndPassword(email, password)
         .addOnSuccessListener {
             Log.i("ds3m", "${it.user!!.uid}")
+
+            val intent = Intent(context, LoginActivity::class.java)
+            context.startActivity(intent)
         }
         .addOnFailureListener {
 
