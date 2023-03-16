@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "105817547718",
+    "project_id": "fir-teste-6bc16",
+    "storage_bucket": "fir-teste-6bc16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105817547718:android:dc980b75c35921637fc8c7",
+        "android_client_info": {
+          "package_name": "br.senai.sp.jandira.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105817547718-q412ph2mqkimsbeavdurcmbcrg82snb7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkkSlXkEyTOQHwdk4ek4cEo6G5emR5Oh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105817547718-q412ph2mqkimsbeavdurcmbcrg82snb7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
